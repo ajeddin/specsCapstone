@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import statsmodels.api as sm
 import plotly.express as px
+import streamlit as st
+import numpy as np
+from scipy.stats import pearsonr
+from scipy import stats
+import plotly.graph_objs as go
+
 def load_data():
     happiness = pd.read_csv(r'dataframes/cleanhappiness.csv',index_col=[0])
     dfSuicide= pd.read_csv(r'dataframes/cleanData.csv')
@@ -32,5 +38,47 @@ testTwo.generation[testTwo.generation == 6] = 'Z'
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 embeded_linkedin={'linkedin':"""<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="ajedev" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/ajedev?trk=profile-badge"></a></div>"""}
+                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="HORIZONTAL" data-vanity="ajedev" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/ajedev?trk=profile-badge">Abdulaziz Jamaleddin</a></div>
+              
+              """}
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+def plot_male_happiness():
+    # Create the plot
+    fig, ax = plt.subplots()
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['unem10']==0)&(happiness['divorce']==1)], ax=ax, color='blue',label="Employed/Divorced")
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['divorce']==0)&(happiness['unem10']==0)], ax=ax, color='green',label="Employed/Not-Divorced")
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['unem10']==1)&(happiness['divorce']==0)], ax=ax, color='purple',label="Unemployed/Not-Divorced")
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['divorce']==1)&(happiness['unem10']==1)], ax=ax, color='red',label="Unemployed/Divorced")
+    
+    # Set plot attributes
+    ax.set_title('Male Happiness Scale')
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Happy Amount')
+    ax.grid()
+    ax.set_xlim(xmin=1994)
+    ax.legend()
+    
+    # Show the plot
+    st.pyplot(fig)
+
+
+def plot_female_happiness():
+# Create the plot
+    fig, ax = plt.subplots()
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['unem10']==0)&(happiness['divorce']==1)], ax=ax, color='blue',label="Employed/Divorced")
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['divorce']==0)&(happiness['unem10']==0)], ax=ax, color='green',label="Employed/Not-Divorced")
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['unem10']==1)&(happiness['divorce']==0)], ax=ax, color='purple',label="Unemployed/Not-Divorced")
+    sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['divorce']==1)&(happiness['unem10']==1)], ax=ax, color='red',label="Unemployed/Divorced")
+
+    # Set plot attributes
+    ax.set_title('Female Happiness Scale')
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Happy Amount')
+    ax.grid()
+    ax.set_xlim(xmin=1994)
+    ax.legend()
+
+    # Show the plot
+    st.pyplot(fig)
