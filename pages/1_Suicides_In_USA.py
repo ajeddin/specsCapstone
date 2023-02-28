@@ -24,10 +24,18 @@ suicides_gender_USA.update_layout(
 
 ###############################################################
 st.title('Suicides in USA Analysis')
-plot_happiness_suicides_gender()
-st.plotly_chart(scatterGender,use_container_width=True)
-st.plotly_chart(barPlotGenerationUSA,use_container_width=True)
+st.header('Women commit less suicide compared to men in the US')
+
+col1,col2 = st.columns((1,1))
+with col1:
+    st.plotly_chart(scatterGender,use_container_width=True )
+with col2:
+    st.plotly_chart(barPlotGenerationUSA,use_container_width=True)
+
+# st.plotly_chart(scatterGender)
+# st.plotly_chart(barPlotGenerationUSA)
 st.plotly_chart(suicides_gender_USA,use_container_width=True)
+plot_happiness_suicides_gender()
 
 
 with st.sidebar:

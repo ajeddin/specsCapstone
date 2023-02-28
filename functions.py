@@ -68,7 +68,7 @@ def plot_male_happiness():
     st.pyplot(fig)
 
 def plot_happiness_suicides_gender():
-    fig, ax1 = plt.subplots(figsize=(10, 6))
+    fig, ax1 = plt.subplots(figsize=(6,3))
 
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)], ax=ax1, color='blue',label="Male Happiness")
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)], ax=ax1, color='red',label="Female Happiness")
@@ -254,4 +254,16 @@ worldwideSuicideGender['data'][1]['line']['color']='rgb(237, 9, 9)'
 #                          line=dict(color='red'),
 #                          name='Unemployed/Divorced'))
 
+
+
+ddterr = px.line(ddTerr,y='ddfat',x='year')
+ddterr.data[0].name="Drunk Driving Fatalities"
+ddterr['data'][0]['line']['color']='rgb(23, 54, 255)'
+ddterr.update_traces(showlegend=True)
+
+ddterr.add_scatter( x=ddTerr['year'],y=ddTerr['nkill'],name='Deaths Caused by Terrorist Attacks')
+ddterr['data'][1]['line']['color']='rgb(237, 9, 9)'
+ddterr.add_scatter( x=ddTerr['year'],y=ddTerr['suicides'],name='Suicides Deaths')
+ddterr['data'][2]['line']['color']='rgb(6, 299, 9)'
+ddterr.update_xaxes(range=[1985, 2017])
 ###################################################################

@@ -6,6 +6,7 @@ st. set_page_config(layout="wide",
     page_icon='🌍'
 )
 st.title('Worldwide Suicides Analysis') 
+st.header('Women commit less suicide compared to men worldwide')
 ################################################################
 lineplotSuicides.update_layout(
     title="Worldwide Suicides per 100k",
@@ -24,10 +25,14 @@ worldwideSuicideGender.update_layout(
 )
 ################################################################
 
-st.plotly_chart(lineplotSuicides)
-st.plotly_chart(barPlotGeneration)
-st.plotly_chart(worldwideSuicideGender)
 
+col1,col2 = st.columns((1,1))
+with col1:
+    st.plotly_chart(barPlotGeneration,use_container_width=True)
+    
+with col2:
+    st.plotly_chart(worldwideSuicideGender,use_container_width=True)
+st.plotly_chart(lineplotSuicides,use_container_width=True)
 
 
 
