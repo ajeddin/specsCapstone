@@ -35,9 +35,9 @@ with col2:
     st.write('### - [Matplotlib](https://matplotlib.org/) | [Seaborn](https://seaborn.pydata.org/) | [Plotly](https://plotly.com/python/)')
 
 
-st.sidebar.success('👆 Select a page above 👆')
+# st.sidebar.success('👆 Select a page above 👆')
 with st.sidebar:
-    st.markdown('___')
+    # st.markdown('___')
     st.markdown("Developed by `Abdulaziz Jamaleddin`  ⇨  [GitHub Repo](https://github.com/ajeddin/specsCapstone).")
     st.markdown('___')
 

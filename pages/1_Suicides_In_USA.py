@@ -5,6 +5,8 @@ st. set_page_config(layout="wide",
     page_title='Suicides in USA Analysis',
     page_icon='☠️'
 )
+st.sidebar.header('Women commit less suicide compared to men in the US')
+
 ###############################################################
 scatterGender.update_layout(
     title="Suicides and GDP per Capita",

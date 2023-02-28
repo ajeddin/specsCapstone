@@ -6,6 +6,8 @@ st. set_page_config(layout="wide",
     page_icon='🌍'
 )
 st.title('Worldwide Suicides Analysis') 
+st.sidebar.header('Women commit less suicide compared to men worldwide')
+
 st.header('Women commit less suicide compared to men worldwide')
 ################################################################
 lineplotSuicides.update_layout(
