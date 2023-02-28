@@ -6,8 +6,7 @@ import statsmodels.api as sm
 import plotly.express as px
 import streamlit as st
 import numpy as np
-from scipy.stats import pearsonr
-from scipy import stats
+
 import plotly.graph_objs as go
 
 def load_data():
@@ -17,7 +16,6 @@ def load_data():
     return happiness,dfSuicide,ddTerr
 happiness,dfSuicide,ddTerr= load_data() #importing Dataframes
 # # # # # # # # # # # # # # # DATA CLEANING # # # # # # # # # # # # # # # # # # # # #
-# Prices Dataframe Cleaning
 dftest =dfSuicide.loc[dfSuicide['sex']==1].groupby('year',as_index=False).sum()
 dftestWomen =dfSuicide.loc[dfSuicide['sex']==2].groupby('year',as_index=False).sum()
 summed = dfSuicide.groupby('year',as_index=False).mean()
@@ -49,14 +47,12 @@ embeded_linkedin={'linkedin':"""<script src="https://platform.linkedin.com/badge
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 def plot_male_happiness():
-    # Create the plot
     fig, ax = plt.subplots()
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['unem10']==0)&(happiness['divorce']==1)], ax=ax, color='blue',label="Employed/Divorced")
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['divorce']==0)&(happiness['unem10']==0)], ax=ax, color='green',label="Employed/Not-Divorced")
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['unem10']==1)&(happiness['divorce']==0)], ax=ax, color='purple',label="Unemployed/Not-Divorced")
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==0)&(happiness['divorce']==1)&(happiness['unem10']==1)], ax=ax, color='red',label="Unemployed/Divorced")
     
-    # Set plot attributes
     ax.set_title('Male Happiness Scale')
     ax.set_xlabel('Year')
     ax.set_ylabel('Happy Amount')
@@ -64,7 +60,6 @@ def plot_male_happiness():
     ax.set_xlim(xmin=1994)
     ax.legend()
     
-    # Show the plot
     st.pyplot(fig)
 
 def plot_happiness_suicides_gender():
@@ -89,18 +84,15 @@ def plot_happiness_suicides_gender():
     ax1.set_title('Happiness vs. Suicides in USA')
     ax1.legend(loc='upper left')
 
-    # Show the plot
     st.pyplot(fig)
 
 def plot_female_happiness():
-# Create the plot
     fig, ax = plt.subplots()
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['unem10']==0)&(happiness['divorce']==1)], ax=ax, color='blue',label="Employed/Divorced")
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['divorce']==0)&(happiness['unem10']==0)], ax=ax, color='green',label="Employed/Not-Divorced")
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['unem10']==1)&(happiness['divorce']==0)], ax=ax, color='purple',label="Unemployed/Not-Divorced")
     sns.lineplot(x='year',y='happy',ci=None,data=happiness[(happiness['female']==1)&(happiness['divorce']==1)&(happiness['unem10']==1)], ax=ax, color='red',label="Unemployed/Divorced")
 
-    # Set plot attributes
     ax.set_title('Female Happiness Scale')
     ax.set_xlabel('Year')
     ax.set_ylabel('Happy Amount')
@@ -177,21 +169,18 @@ suicides_gender_USA['data'][1]['line']['color']='rgb(237, 9, 9)'
 
 fig = go.Figure()
 
-# Add male happiness line trace
 fig.add_trace(go.Scatter(x=happiness[happiness['female'] == 0]['year'],
                          y=happiness[happiness['female'] == 0]['happy'],
                          mode='lines',
                          line=dict(color='blue'),
                          name='Male Happiness'))
 
-# Add female happiness line trace
 fig.add_trace(go.Scatter(x=summedHapp[summedHapp['female'] == 1]['year'],
                          y=summedHapp[summedHapp['female'] == 1]['happy'],
                          mode='lines',
                          line=dict(color='red'),
                          name='Female Happiness'))
 
-# Add male suicides line trace
 fig.add_trace(go.Scatter(x=test['year'],
                          y=test['percapita'],
                          mode='lines',
@@ -199,7 +188,6 @@ fig.add_trace(go.Scatter(x=test['year'],
                          name='Male Suicides',
                          yaxis='y2'))
 
-# Add female suicides line trace
 fig.add_trace(go.Scatter(x=testWomen['year'],
                          y=testWomen['percapita'],
                          mode='lines',
@@ -207,7 +195,6 @@ fig.add_trace(go.Scatter(x=testWomen['year'],
                          name='Female Suicides',
                          yaxis='y2'))
 
-# Add axes labels, title, and legend
 fig.update_layout(title='Happiness vs. Suicides in USA',
                   xaxis_title='Year',
                   yaxis=dict(title='Happiness', range=[0, 2000]),
