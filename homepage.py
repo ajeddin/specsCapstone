@@ -17,7 +17,7 @@ with col3:
 
 
 st.write('# Purpose')
-st.markdown('### The goal of this study is to illustrate the difference between the suicide rates betweeen men and females')
+st.markdown('### The goal of this study is to illustrate suicide rates between men and females')
 st.markdown('##### 👈 Select a Page')
 
 col1,col2 = st.columns((1,1))
