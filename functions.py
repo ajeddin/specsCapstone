@@ -9,9 +9,12 @@ import plotly.graph_objs as go
 
 def load_data():
     
-    happiness = pd.read_csv(r'dataframes/cleanhappiness.csv',index_col=[0])
+    happiness = pd.read_csv(r'cleanhappiness.csv',index_col=[0])
+    # happiness = pd.read_csv(r'dataframes/cleanhappiness.csv',index_col=[0])
     dfSuicide= pd.read_csv(r'cleanData.csv')
-    ddTerr=pd.read_csv(r'dataframes/DST.csv')
+    # dfSuicide= pd.read_csv(r'cleanData.csv')
+    ddTerr=pd.read_csv(r'DST.csv')
+    # ddTerr=pd.read_csv(r'dataframes/DST.csv')
     return happiness,dfSuicide,ddTerr
 happiness,dfSuicide,ddTerr= load_data() #importing Dataframes
 # # # # # # # # # # # # # # # DATA CLEANING # # # # # # # # # # # # # # # # # # # # #
