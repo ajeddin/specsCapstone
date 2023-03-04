@@ -128,84 +128,7 @@ suicides_gender_USA['data'][1]['line']['color']='rgb(237, 9, 9)'
 # plot_happiness_suicides_gender.update_traces(showlegend=True)
 
 # plot_happiness_suicides_gender.add_scatter( x=testWomen['year'],y=testWomen['percapita'],name='Women')
-# plot_happiness_suicides_gender['data'][1]['line']['color']='rgb(237, 9, 9)'
-# fig = go.Figure()
-
-# fig.add_trace(go.Scatter(x=happiness[happiness['female'] == 0]['year'],
-#                          y=happiness[happiness['female'] == 0].groupby('year',as_index=False).sum()['happy'],
-#                          mode='lines',
-#                          line=dict(color='blue'),
-#                          name='Male Happiness', yaxis="y"))
-
-# # Add female happiness line trace
-# fig.add_trace(go.Scatter(x=happiness[happiness['female'] == 1]['year'],
-#                          y=happiness[happiness['female'] == 1].groupby('year',as_index=False).sum()['happy'],
-#                          mode='lines',
-#                          line=dict(color='red'),
-#                          name='Female Happiness', yaxis="y"))
-
-# # Add male suicides line trace
-# fig.add_trace(go.Scatter(x=test['year'],
-#                          y=test['suicides_no'],
-#                          mode='lines',
-#                          line=dict(color='green'),
-#                          name='Male Suicides',yaxis='y1'))
-
-# # Add female suicides line trace
-# fig.add_trace(go.Scatter(x=testWomen['year'],
-#                          y=testWomen['percapita'],
-#                          mode='lines',
-#                          line=dict(color='pink'),
-#                          name='Female Suicides',yaxis='y1'))
-
- 
-# # Create axis objects
-# fig.update_layout(xaxis=dict(domain=[0.3, 0.7]),
- 
-#                   # create 1st y axis
-#                   yaxis=dict(
-#     title="yaxis title",
-#     titlefont=dict(color="#1f77b4"),
-#     tickfont=dict(color="#1f77b4")),
- 
-#     # create 2nd y axis
-#     yaxis2=dict(title="yaxis2 title", overlaying="y",
-#                 side="right", position=0.15) )
-
-# fig = go.Figure()
-
-# fig.add_trace(go.Scatter(x=happiness[happiness['female'] == 0]['year'],
-#                          y=happiness[happiness['female'] == 0]['happy'],
-#                          mode='lines',
-#                          line=dict(color='blue'),
-#                          name='Male Happiness'))
-
-# fig.add_trace(go.Scatter(x=summedHapp[summedHapp['female'] == 1]['year'],
-#                          y=summedHapp[summedHapp['female'] == 1]['happy'],
-#                          mode='lines',
-#                          line=dict(color='red'),
-#                          name='Female Happiness'))
-
-# fig.add_trace(go.Scatter(x=test['year'],
-#                          y=test['percapita'],
-#                          mode='lines',
-#                          line=dict(color='green'),
-#                          name='Male Suicides',
-#                          yaxis='y2'))
-
-# fig.add_trace(go.Scatter(x=testWomen['year'],
-#                          y=testWomen['percapita'],
-#                          mode='lines',
-#                          line=dict(color='pink'),
-#                          name='Female Suicides',
-#                          yaxis='y2'))
-
-# fig.update_layout(title='Happiness vs. Suicides in USA',
-#                   xaxis_title='Year',
-#                   yaxis=dict(title='Happiness', range=[0, 2000]),
-#                   yaxis2=dict(title='Suicides', overlaying='y', side='right', range=[0, .0003]),
-#                   legend=dict(x=0, y=1, traceorder='normal'))
-
+# plot_happiness_suicides_gender['data'][1]['line']['color']='rgb(237, 9, 9)
 # ###################################################################
 # #WORLDWIDE PAGE
 barPlotGeneration =  px.bar(testTwo, x="generation", y="suicides_no", color="sex", barmode="group",
@@ -223,29 +146,6 @@ worldwideSuicideGender.add_scatter( x=dftestWomen['year'],y=dftestWomen['suicide
 worldwideSuicideGender['data'][1]['line']['color']='rgb(237, 9, 9)'
 ###################################################################
 #EXTRA 
-# fig = go.Figure()
-
-# fig.add_trace(go.Scatter(x=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==1)&(summedHapp['divorce']==0)]['year'],
-#                          y=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==0)&(summedHapp['divorce']==1)]['happy'],
-#                          mode='lines',
-#                          line=dict(color='blue'),
-#                          name='Employed/Divorced'))
-# fig.add_trace(go.Scatter(x=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==1)&(summedHapp['divorce']==0)]['year'],
-#                          y=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==0)&(summedHapp['divorce']==0)]['happy'],
-#                          mode='lines',
-#                          line=dict(color='green'),
-#                          name='Employed/Not-Divorced'))
-# fig.add_trace(go.Scatter(x=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==1)&(summedHapp['divorce']==0)]['year'],
-#                          y=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==1)&(summedHapp['divorce']==0)]['happy'],
-#                          mode='lines',
-#                          line=dict(color='purple'),
-#                          name='Unemployed/Not-Divorced'))
-# fig.add_trace(go.Scatter(x=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==1)&(summedHapp['divorce']==0)]['year'],
-#                          y=summedHapp[(summedHapp['female']==1)&(summedHapp['unem10']==1)&(summedHapp['divorce']==1)]['happy'],
-#                          mode='lines',
-#                          line=dict(color='red'),
-#                          name='Unemployed/Divorced'))
-
 
 
 ddterr = px.line(ddTerr,y='ddfat',x='year')
