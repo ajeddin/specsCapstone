@@ -208,19 +208,19 @@ suicides_gender_USA['data'][1]['line']['color']='rgb(237, 9, 9)'
 
 # ###################################################################
 # #WORLDWIDE PAGE
-# barPlotGeneration =  px.bar(testTwo, x="generation", y="suicides_no", color="sex", barmode="group",
-#              color_discrete_sequence=['blue', 'red'])
-# barPlotGenerationUSA =  px.bar(testTwo[testTwo['country']=='United States'], x="generation", y="suicides_no", color="sex", barmode="group",
-#              color_discrete_sequence=['blue', 'red'])
-# lineplotSuicides = px.line(summed, x='year',y='suicides/100kpop')
+barPlotGeneration =  px.bar(testTwo, x="generation", y="suicides_no", color="sex", barmode="group",
+             color_discrete_sequence=['blue', 'red'])
+barPlotGenerationUSA =  px.bar(testTwo[testTwo['country']=='United States'], x="generation", y="suicides_no", color="sex", barmode="group",
+             color_discrete_sequence=['blue', 'red'])
+lineplotSuicides = px.line(summed, x='year',y='suicides/100kpop')
 
-# worldwideSuicideGender = px.line(dftest, x='year',y='suicides_no')
-# worldwideSuicideGender.data[0].name="Male"
-# worldwideSuicideGender['data'][0]['line']['color']='rgb(23, 54, 255)'
-# worldwideSuicideGender.update_traces(showlegend=True)
+worldwideSuicideGender = px.line(dftest, x='year',y='suicides_no')
+worldwideSuicideGender.data[0].name="Male"
+worldwideSuicideGender['data'][0]['line']['color']='rgb(23, 54, 255)'
+worldwideSuicideGender.update_traces(showlegend=True)
 
-# worldwideSuicideGender.add_scatter( x=dftestWomen['year'],y=dftestWomen['suicides_no'],name='Women')
-# worldwideSuicideGender['data'][1]['line']['color']='rgb(237, 9, 9)'
+worldwideSuicideGender.add_scatter( x=dftestWomen['year'],y=dftestWomen['suicides_no'],name='Women')
+worldwideSuicideGender['data'][1]['line']['color']='rgb(237, 9, 9)'
 ###################################################################
 #EXTRA 
 # fig = go.Figure()
