@@ -1,8 +1,6 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import statsmodels.api as sm
 import plotly.express as px
 import streamlit as st
 import numpy as np
@@ -10,9 +8,9 @@ import numpy as np
 import plotly.graph_objs as go
 
 def load_data():
-    happiness = pd.read_csv('dataframes\cleanhappiness.csv',index_col=[0])
-    dfSuicide= pd.read_csv('dataframes\cleanData.csv')
-    ddTerr=pd.read_csv('dataframes\DST.csv')
+    happiness = pd.read_csv('dataframes//cleanhappiness.csv',index_col=[0])
+    dfSuicide= pd.read_csv('dataframes//cleanData.csv')
+    ddTerr=pd.read_csv('dataframes//DST.csv')
     return happiness,dfSuicide,ddTerr
 happiness,dfSuicide,ddTerr= load_data() #importing Dataframes
 # # # # # # # # # # # # # # # DATA CLEANING # # # # # # # # # # # # # # # # # # # # #
