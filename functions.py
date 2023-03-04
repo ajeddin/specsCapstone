@@ -7,16 +7,22 @@ import numpy as np
 
 # import plotly.graph_objs as go
 
-def load_data():
+def load_data(file_path):
+    return pd.read_csv(file_path)
+
+dfSuicide= pd.read_csv('cleanData.csv')
+happiness = pd.read_csv('cleanhappiness.csv',index_col=[0])
+ddTerr=pd.read_csv('DST.csv')
+# def load_data():
     
-    # happiness = pd.read_csv(r'cleanhappiness.csv',index_col=[0])
-    happiness = pd.read_csv(r'dataframes/cleanhappiness.csv',index_col=[0])
-    dfSuicide= pd.read_csv(r'dataframes/cleanData.csv')
-    # dfSuicide= pd.read_csv(r'cleanData.csv')
-    # ddTerr=pd.read_csv(r'DST.csv')
-    ddTerr=pd.read_csv(r'dataframes/DST.csv')
-    return happiness,dfSuicide,ddTerr
-happiness,dfSuicide,ddTerr= load_data() #importing Dataframes
+#     # happiness = pd.read_csv(r'cleanhappiness.csv',index_col=[0])
+#     happiness = pd.read_csv(r'dataframes/cleanhappiness.csv',index_col=[0])
+#     dfSuicide= pd.read_csv(r'dataframes/cleanData.csv')
+#     # dfSuicide= pd.read_csv(r'cleanData.csv')
+#     # ddTerr=pd.read_csv(r'DST.csv')
+#     ddTerr=pd.read_csv(r'dataframes/DST.csv')
+#     return happiness,dfSuicide,ddTerr
+# happiness,dfSuicide,ddTerr= load_data() #importing Dataframes
 # # # # # # # # # # # # # # # DATA CLEANING # # # # # # # # # # # # # # # # # # # # #
 dftest =dfSuicide.loc[dfSuicide['sex']==1].groupby('year',as_index=False).sum()
 dftestWomen =dfSuicide.loc[dfSuicide['sex']==2].groupby('year',as_index=False).sum()
