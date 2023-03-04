@@ -7,12 +7,9 @@ import numpy as np
 
 # import plotly.graph_objs as go
 
-def load_data(file_path):
-    return pd.read_csv(file_path)
-
 dfSuicide= pd.read_csv('cleanData.csv')
-happiness = pd.read_csv('cleanhappiness.csv',index_col=[0])
-ddTerr=pd.read_csv('DST.csv')
+happiness = pd.read_csv('cleanHappiness.csv',index_col=[0])
+ddTerr=pd.read_csv(r'dataframes/DST.csv')
 # def load_data():
     
 #     # happiness = pd.read_csv(r'cleanhappiness.csv',index_col=[0])
