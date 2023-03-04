@@ -5,7 +5,7 @@ import plotly.express as px
 import streamlit as st
 import numpy as np
 
-import plotly.graph_objs as go
+# import plotly.graph_objs as go
 
 def load_data():
     
@@ -169,55 +169,55 @@ suicides_gender_USA['data'][1]['line']['color']='rgb(237, 9, 9)'
 #     yaxis2=dict(title="yaxis2 title", overlaying="y",
 #                 side="right", position=0.15) )
 
-fig = go.Figure()
+# fig = go.Figure()
 
-fig.add_trace(go.Scatter(x=happiness[happiness['female'] == 0]['year'],
-                         y=happiness[happiness['female'] == 0]['happy'],
-                         mode='lines',
-                         line=dict(color='blue'),
-                         name='Male Happiness'))
+# fig.add_trace(go.Scatter(x=happiness[happiness['female'] == 0]['year'],
+#                          y=happiness[happiness['female'] == 0]['happy'],
+#                          mode='lines',
+#                          line=dict(color='blue'),
+#                          name='Male Happiness'))
 
-fig.add_trace(go.Scatter(x=summedHapp[summedHapp['female'] == 1]['year'],
-                         y=summedHapp[summedHapp['female'] == 1]['happy'],
-                         mode='lines',
-                         line=dict(color='red'),
-                         name='Female Happiness'))
+# fig.add_trace(go.Scatter(x=summedHapp[summedHapp['female'] == 1]['year'],
+#                          y=summedHapp[summedHapp['female'] == 1]['happy'],
+#                          mode='lines',
+#                          line=dict(color='red'),
+#                          name='Female Happiness'))
 
-fig.add_trace(go.Scatter(x=test['year'],
-                         y=test['percapita'],
-                         mode='lines',
-                         line=dict(color='green'),
-                         name='Male Suicides',
-                         yaxis='y2'))
+# fig.add_trace(go.Scatter(x=test['year'],
+#                          y=test['percapita'],
+#                          mode='lines',
+#                          line=dict(color='green'),
+#                          name='Male Suicides',
+#                          yaxis='y2'))
 
-fig.add_trace(go.Scatter(x=testWomen['year'],
-                         y=testWomen['percapita'],
-                         mode='lines',
-                         line=dict(color='pink'),
-                         name='Female Suicides',
-                         yaxis='y2'))
+# fig.add_trace(go.Scatter(x=testWomen['year'],
+#                          y=testWomen['percapita'],
+#                          mode='lines',
+#                          line=dict(color='pink'),
+#                          name='Female Suicides',
+#                          yaxis='y2'))
 
-fig.update_layout(title='Happiness vs. Suicides in USA',
-                  xaxis_title='Year',
-                  yaxis=dict(title='Happiness', range=[0, 2000]),
-                  yaxis2=dict(title='Suicides', overlaying='y', side='right', range=[0, .0003]),
-                  legend=dict(x=0, y=1, traceorder='normal'))
+# fig.update_layout(title='Happiness vs. Suicides in USA',
+#                   xaxis_title='Year',
+#                   yaxis=dict(title='Happiness', range=[0, 2000]),
+#                   yaxis2=dict(title='Suicides', overlaying='y', side='right', range=[0, .0003]),
+#                   legend=dict(x=0, y=1, traceorder='normal'))
 
-###################################################################
-#WORLDWIDE PAGE
-barPlotGeneration =  px.bar(testTwo, x="generation", y="suicides_no", color="sex", barmode="group",
-             color_discrete_sequence=['blue', 'red'])
-barPlotGenerationUSA =  px.bar(testTwo[testTwo['country']=='United States'], x="generation", y="suicides_no", color="sex", barmode="group",
-             color_discrete_sequence=['blue', 'red'])
-lineplotSuicides = px.line(summed, x='year',y='suicides/100kpop')
+# ###################################################################
+# #WORLDWIDE PAGE
+# barPlotGeneration =  px.bar(testTwo, x="generation", y="suicides_no", color="sex", barmode="group",
+#              color_discrete_sequence=['blue', 'red'])
+# barPlotGenerationUSA =  px.bar(testTwo[testTwo['country']=='United States'], x="generation", y="suicides_no", color="sex", barmode="group",
+#              color_discrete_sequence=['blue', 'red'])
+# lineplotSuicides = px.line(summed, x='year',y='suicides/100kpop')
 
-worldwideSuicideGender = px.line(dftest, x='year',y='suicides_no')
-worldwideSuicideGender.data[0].name="Male"
-worldwideSuicideGender['data'][0]['line']['color']='rgb(23, 54, 255)'
-worldwideSuicideGender.update_traces(showlegend=True)
+# worldwideSuicideGender = px.line(dftest, x='year',y='suicides_no')
+# worldwideSuicideGender.data[0].name="Male"
+# worldwideSuicideGender['data'][0]['line']['color']='rgb(23, 54, 255)'
+# worldwideSuicideGender.update_traces(showlegend=True)
 
-worldwideSuicideGender.add_scatter( x=dftestWomen['year'],y=dftestWomen['suicides_no'],name='Women')
-worldwideSuicideGender['data'][1]['line']['color']='rgb(237, 9, 9)'
+# worldwideSuicideGender.add_scatter( x=dftestWomen['year'],y=dftestWomen['suicides_no'],name='Women')
+# worldwideSuicideGender['data'][1]['line']['color']='rgb(237, 9, 9)'
 ###################################################################
 #EXTRA 
 # fig = go.Figure()

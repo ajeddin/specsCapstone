@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as component
 from functions import suicides_gender_USA,plot_happiness_suicides_gender,testTwo,scatterGender,barPlotGenerationUSA
 st. set_page_config(layout="wide",
     page_title='Suicides in USA Analysis',

@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 from functions import plot_male_happiness,plot_female_happiness,ddterr
 st. set_page_config(layout="wide",
     page_title='Extra Fun Analyzations',
